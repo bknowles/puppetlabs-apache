@@ -35,7 +35,23 @@ describe 'apache::mod::alias', :type => :class do
       }
     end
     it { is_expected.to contain_apache__mod("alias") }
-    it { is_expected.to contain_file("alias.conf").with(:content => /Alias \/icons\/ "\/var\/www\/icons\/"/) }
+
+    # Borrowed from spec/apache_spec.rb lines 511-524 in commit 5e321ce349910484b7db7ec709d89d803397eec5
+    describe "different templates for alias.conf" do
+      context "with default" do
+        let :params do
+          { :alias_conf_template => 'apache/mod/alias.conf.erb' }
+        end
+        it { is_expected.to contain_file("alias.conf").with(:content => /Alias \/icons\/ "\/var\/www\/icons\/"/) }
+      end
+      context "with non-default" do
+        let :params do
+          { :alias_conf_template => 'site_apache/fake.conf.erb' }
+        end
+        it { is_expected.to contain_file("alias.conf").with_content %r{^Fake template for rspec.$} }
+      end
+    end
+
   end
   context "on a RedHat 7-based OS", :compile do
     let :facts do

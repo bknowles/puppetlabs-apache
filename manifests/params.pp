@@ -106,6 +106,7 @@ class apache::params inherits ::apache::version {
       'nss'  => 'libmodnss.so',
     }
     $conf_template        = 'apache/httpd.conf.erb'
+    $alias_conf_template  = 'apache/mod/alias.conf.erb'
     $keepalive            = 'Off'
     $keepalive_timeout    = 15
     $max_keepalive_requests = 100
@@ -199,6 +200,7 @@ class apache::params inherits ::apache::version {
       'php5' => 'libphp5.so',
     }
     $conf_template          = 'apache/httpd.conf.erb'
+    $alias_conf_template    = 'apache/mod/alias.conf.erb'
     $keepalive              = 'Off'
     $keepalive_timeout      = 15
     $max_keepalive_requests = 100
@@ -347,6 +349,7 @@ class apache::params inherits ::apache::version {
       'php5' => 'libphp5.so',
     }
     $conf_template        = 'apache/httpd.conf.erb'
+    $alias_conf_template  = 'apache/mod/alias.conf.erb'
     $keepalive            = 'Off'
     $keepalive_timeout    = 15
     $max_keepalive_requests = 100
@@ -408,6 +411,7 @@ class apache::params inherits ::apache::version {
       'php5' => 'libphp5.so',
     }
     $conf_template        = 'apache/httpd.conf.erb'
+    $alias_conf_template  = 'apache/mod/alias.conf.erb'
     $keepalive            = 'Off'
     $keepalive_timeout    = 15
     $max_keepalive_requests = 100
@@ -454,6 +458,7 @@ class apache::params inherits ::apache::version {
       'php5' => 'libphp5.so',
     }
     $conf_template          = 'apache/httpd.conf.erb'
+    $alias_conf_template    = 'apache/mod/alias.conf.erb'
     $keepalive              = 'Off'
     $keepalive_timeout      = 15
     $max_keepalive_requests = 100

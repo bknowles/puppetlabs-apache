@@ -19,7 +19,7 @@ class apache::mod::alias(
   file { 'alias.conf':
     ensure  => file,
     path    => "${::apache::mod_dir}/alias.conf",
-    content => template('apache/mod/alias.conf.erb'),
+    content => template(${::apache::alias_conf_template}),
     require => Exec["mkdir ${::apache::mod_dir}"],
     before  => File[$::apache::mod_dir],
     notify  => Class['apache::service'],
